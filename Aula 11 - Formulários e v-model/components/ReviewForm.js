@@ -14,8 +14,13 @@ app.component('review-form', {
       <option>5</option>
       <option>4</option>
       <option>3</option>
-      <option>2</option>]
+      <option>2</option>
       <option>1</option>
+
+    <label for="question"> Would you recommend this product?</label>
+    <select id="question">
+      <option>Yes</option>
+      <option>No</option>
     </select>
 
     <input class="button" type="submit" value="Submit">
@@ -24,12 +29,13 @@ app.component('review-form', {
     return {
       name: '',
       review: '',
-      rating: null
+      rating: null,
+      question: null,
     }
   },
   methods: {
     onSubmit() {
-      if (this.name === '' || this.review === '' || this.rating === null) {
+      if (this.name === '' || this.review === '' || this.rating === null || this.question === null ) {
         alert('Review is incomplete. Please fill out every field.')
         return 
       }
@@ -37,12 +43,11 @@ app.component('review-form', {
         name: this.name,
         review: this.review,
         rating: this.rating,
+        question: this.question,
       }
       this.$emit('review-submitted', productReview)
  
-      this.name = ''
-      this.review = ''
-      this.rating = null
+      
     }
   }
 

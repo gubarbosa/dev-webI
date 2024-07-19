@@ -6,6 +6,10 @@ app.component('product-display', {
         },
         details: {
             required: true
+        },
+        reviews: {
+          type: Array,
+          required: true
         }
     },
     template: 
